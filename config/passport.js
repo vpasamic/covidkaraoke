@@ -3,6 +3,7 @@ const LocalStrategy = require("passport-local").Strategy;
 
 const db = require("../models");
 
+const test = "test";
 // Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
 passport.use(
   new LocalStrategy(
