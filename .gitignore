@@ -1,3 +1,6 @@
 node_modules/
 .env
 .DS_Store
+
+spotify client id: 16c4e3a3c1d64f3d9fe985bf4db912e5
+spotify client secret:e36847c96ab54527a27e52cf1ee34b07

@@ -1,5 +1,7 @@
+require("dotenv").config();
 // Requiring necessary npm packages
 const express = require("express");
+const exphbs = require("express-handlebars");
 const session = require("express-session");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
@@ -13,9 +15,20 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
+app.engine("handlebars", exphbs());
+app.set("view engine", "handlebars");
+
+if (!process.env.SERVER_SECRET) {
+  console.log("Missing SERVER_SECRET env variable. Shutting down.");
+  process.exit(1);
+}
 // We need to use sessions to keep track of our user's login status
 app.use(
-  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+  session({
+    secret: process.env.SERVER_SECRET,
+    resave: true,
+    saveUninitialized: true
+  })
 );
 app.use(passport.initialize());
 app.use(passport.session());
