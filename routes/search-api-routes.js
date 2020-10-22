@@ -1,40 +1,36 @@
 const db = require("../models");
 
 // Routes
-module.exports = (app) => {
+module.exports = app => {
   // GET route for getting all of the posts
-  app.get("/api", (req, res) => {
+  app.get("/api/history", (req, res) => {
     const query = {};
     if (req.query.user_id) {
       query.UserId = req.query.user_id;
     }
     // Here we add an "include" property to our options in our findAll query
-    db.Post.findAll({
+    db.Search.findAll({
       where: query,
       include: [db.User]
-    }).then((dbSearch) => {
+    }).then(dbSearch => {
       res.json(dbSearch);
     });
-  });
-
-  // Get route for retrieving a single post
-  app.get("/api/history/:id", (req, res) => {
-    // Here we add an "include" property to our options in our findOne query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.User
-    db.Post.findOne({
-      where: {
-        id: req.params.id
-      },
-      include: [db.User]
-    }).then((dbSearch) => {
-      res.json(dbSearch);
-    });
+    if (!req.user) {
+      // The user is not logged in, send back an empty object
+      res.json({});
+    } else {
+      // Otherwise send back the user's email and id
+      // Sending back a password, even a hashed password, isn't a good idea
+      res.json({
+        email: req.user.email,
+        id: req.user.id
+      });
+    }
   });
 
   // POST route for saving a new post
   app.post("/api/history", (req, res) => {
-    db.Post.create(req.body).then((dbSearch) => {
+    db.Search.create(req.body).then(dbSearch => {
       res.json(dbSearch);
     });
   });
@@ -49,15 +45,4 @@ module.exports = (app) => {
   //     res.json(dbSearch);
   //   });
   // });
-
-  // PUT route for updating posts
-  app.put("/api/history", (req, res) => {
-    db.Post.update(req.body, {
-      where: {
-        id: req.body.id
-      }
-    }).then((dbSearch) => {
-      res.json(dbSearch);
-    });
-  });
 };
