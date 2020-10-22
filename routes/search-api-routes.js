@@ -8,11 +8,15 @@ module.exports = app => {
     if (req.query.user_id) {
       query.UserId = req.query.user_id;
     }
+    console.log("start");
     // Here we add an "include" property to our options in our findAll query
     db.Search.findAll({
       where: query,
       include: [db.User]
+      // limit: 50,
+      // order: [["createdAt", "DESC"]]
     }).then(dbSearch => {
+      console.log("dbSearch");
       res.json(dbSearch);
     });
     if (!req.user) {
