@@ -1,9 +1,9 @@
-const db = require('../models');
+const db = require("../models");
 
 // Routes
 module.exports = (app) => {
   // GET route for getting all of the posts
-  app.get('/api/', (req, res) => {
+  app.get("/api", (req, res) => {
     const query = {};
     if (req.query.user_id) {
       query.UserId = req.query.user_id;
@@ -12,13 +12,13 @@ module.exports = (app) => {
     db.Post.findAll({
       where: query,
       include: [db.User]
-    }).then((dbPlaylist) => {
-      res.json(dbPlaylist);
+    }).then((dbSearch) => {
+      res.json(dbSearch);
     });
   });
 
   // Get route for retrieving a single post
-  app.get('/api/posts/:id', (req, res) => {
+  app.get("/api/history/:id", (req, res) => {
     // Here we add an "include" property to our options in our findOne query
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.User
@@ -27,37 +27,37 @@ module.exports = (app) => {
         id: req.params.id
       },
       include: [db.User]
-    }).then((dbPlaylist) => {
-      res.json(dbPlaylist);
+    }).then((dbSearch) => {
+      res.json(dbSearch);
     });
   });
 
   // POST route for saving a new post
-  app.post('/api/posts', (req, res) => {
-    db.Post.create(req.body).then((dbPlaylist) => {
-      res.json(dbPlaylist);
+  app.post("/api/history", (req, res) => {
+    db.Post.create(req.body).then((dbSearch) => {
+      res.json(dbSearch);
     });
   });
 
   // DELETE route for deleting posts
-  app.delete('/api/posts/:id', (req, res) => {
-    db.Post.destroy({
-      where: {
-        id: req.params.id
-      },
-    }).then((dbPlaylist) => {
-      res.json(dbPlaylist);
-    });
-  });
+  // app.delete("/api/history", (req, res) => {
+  //   db.Post.destroy({
+  //     where: {
+  //       id: req.params.id
+  //     },
+  //   }).then((dbSearch) => {
+  //     res.json(dbSearch);
+  //   });
+  // });
 
   // PUT route for updating posts
-  app.put('/api/posts', (req, res) => {
+  app.put("/api/history", (req, res) => {
     db.Post.update(req.body, {
       where: {
         id: req.body.id
-      },
-    }).then((dbPlaylist) => {
-      res.json(dbPlaylist);
+      }
+    }).then((dbSearch) => {
+      res.json(dbSearch);
     });
   });
 };
