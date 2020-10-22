@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  const Playlist = sequelize.define('Playlist', {
+  const Search = sequelize.define("Search", {
     songTitle: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -14,16 +14,16 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Playlist.associate = function(models) {
+  Search.associate = function(models) {
     // We're saying that a Post should belong to an Author
     // A Post can't be created without an Author due to the foreign key constraint
-    models.Playlist.belongsTo(models.User, {
-      onDelete: 'CASCADE',
+    models.Search.belongsTo(models.User, {
+      onDelete: "CASCADE",
       foreignKey: {
         allowNull: false
       }
     });
   };
 
-  return Playlist;
+  return Search;
 };
