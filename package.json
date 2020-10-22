@@ -9,7 +9,6 @@
     "start:watch": "nodemon server.js",
     "lint": "eslint --quiet .",
     "fix": "eslint --fix ."
-    
   },
   "keywords": [],
   "author": "",
@@ -23,7 +22,9 @@
     "mysql2": "^1.6.5",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^5.8.6"
+    "sequelize": "^5.8.6",
+    "solenolyrics": "^5.0.0",
+    "spotify-web-api-node": "^5.0.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",
