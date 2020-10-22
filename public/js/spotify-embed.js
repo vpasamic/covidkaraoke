@@ -14,7 +14,7 @@ class SpotifyEmbed {
       ["height", 80],
       ["frameborder", 0],
       ["allowtransparency", true],
-      ["allow", "encrypted-media"],
+      ["allow", "encrypted-media"]
     ];
     iframeAttrs.forEach(([attr, value]) =>
       this.iframe.setAttribute(attr, value)
