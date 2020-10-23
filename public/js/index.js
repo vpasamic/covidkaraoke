@@ -1,5 +1,3 @@
-
-
 window.onload = () => {
   const searchResultEl = document.querySelector("#search-results");
   const searchParams = new URLSearchParams(window.location.search);
@@ -7,6 +5,7 @@ window.onload = () => {
     parentEl: document.querySelector("#spotify-embed"),
   });
   const songSearch = searchParams.get("song");
+  console.log(window.location.search)
   let item;
   if (songSearch) {
     fetchSongSearch();
@@ -62,6 +61,7 @@ window.onload = () => {
         <h3>${name}</h3>
         <p>${songDetails({ artistText, spotifyUrl })}</p>
         <button class="btn btn-secondary btn-listen" data-artist="${artistText}"data-title="${name}">Listen</button>
+        <button class="btn btn-secondary save-btn" data-artist="${artistText}"data-title="${name}">Save Song</button>
       `;
     searchResultEl.appendChild(el);
 
