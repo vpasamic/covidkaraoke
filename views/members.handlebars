@@ -56,11 +56,18 @@
   <div id="spotify-embed"></div>
 </div>
 <h2>Saved Songs</h2>
-<ul>
-  {{#each Search}}
-  
-  {{/each}}
-</ul>
+<div>
+{{#each songs}}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2>{{songTitle}}</h2>
+        <small>{{createdAt}}</small>
+      </h2>
+      <h5 style="float: right; color: blue; margin-top: -10px;">Written by: {{artist}} </h5>
+    </div>
+  </div>
+{{/each}}
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/members.js"></script>
