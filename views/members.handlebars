@@ -48,5 +48,13 @@
   <div class="card-body"></div>
   <div id="spotify-embed"></div>
 </div>
+<h2>Saved Songs</h2>
+
+<ul>
+  {{#each saveSong}}
+    {{#if UserId = req.user.Id}}
+    {{/if}}
+  {{/each}}
+</ul>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/members.js"></script>
