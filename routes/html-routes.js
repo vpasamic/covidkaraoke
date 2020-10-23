@@ -25,21 +25,17 @@ module.exports = function(app) {
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, (req, res) => {
-    if (!req.user) {
-      res.json({});
-    } else {
-      console.log("start");
-      // Here we add an "include" property to our options in our findAll query
-      db.Search.findAll({
-        where: {
-          UserId: req.user.id
-        },
-        limit: 50,
-        order: [["createdAt", "DESC"]]
-      }).then(saveSong => {
-        console.log(saveSong);
-        res.render("members", saveSong);
-      });
-    }
+    console.log("start");
+    // Here we add an "include" property to our options in our findAll query
+    db.Search.findAll({
+      where: {
+        UserId: req.user.id
+      },
+      order: [["createdAt", "DESC"]],
+      raw: true
+    }).then(function(saveSongs) {
+      console.log(saveSongs);
+      res.render("members", { songs: saveSongs });
+    });
   });
 };
