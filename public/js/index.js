@@ -25,7 +25,7 @@ window.onload = () => {
 
       const saveSong = {
         artist: song.artist,
-        songTitle: song.title        
+        songTitle: song.title
       };
       $.ajax("/api/history", {
         type: "POST",
@@ -36,14 +36,6 @@ window.onload = () => {
       });
     }
   });
-<<<<<<< HEAD
-  function savesong(artist, title) {
-    const savesongquery = `/api/history?title=${title}&artist=${artist}`;
-    post(savesongquery);
-  }
-
-=======
->>>>>>> 2fe35238dc5402d123dd0109118f5d240dca2bd8
   function getlyrics(artist, title) {
     const lyricq = `/api/lyrics?title=${title}&artist=${artist}`;
     console.log(lyricq);

@@ -11,7 +11,7 @@ const retrieveAccessToken = async () => {
   spotifyApi.setAccessToken(data.body["access_token"]);
 };
 
-const searchSpotifyForTrack = async (query) => {
+const searchSpotifyForTrack = async query => {
   try {
     const searchResults = await spotifyApi.searchTracks(query, { limit: 1 });
     return searchResults;
