@@ -1,7 +1,7 @@
 const db = require("../models");
 
 // Routes
-module.exports = (app) => {
+module.exports = app => {
   // GET route for getting all of the posts
   app.get("/api", (req, res) => {
     const query = {};
@@ -12,7 +12,7 @@ module.exports = (app) => {
     db.Post.findAll({
       where: query,
       include: [db.User]
-    }).then((dbSearch) => {
+    }).then(dbSearch => {
       res.json(dbSearch);
     });
   });
@@ -27,14 +27,14 @@ module.exports = (app) => {
         id: req.params.id
       },
       include: [db.User]
-    }).then((dbSearch) => {
+    }).then(dbSearch => {
       res.json(dbSearch);
     });
   });
 
   // POST route for saving a new post
   app.post("/api/history", (req, res) => {
-    db.Post.create(req.body).then((dbSearch) => {
+    db.Post.create(req.body).then(dbSearch => {
       res.json(dbSearch);
     });
   });
@@ -56,7 +56,7 @@ module.exports = (app) => {
       where: {
         id: req.body.id
       }
-    }).then((dbSearch) => {
+    }).then(dbSearch => {
       res.json(dbSearch);
     });
   });

@@ -2,33 +2,33 @@ window.onload = () => {
   const searchResultEl = document.querySelector("#search-results");
   const searchParams = new URLSearchParams(window.location.search);
   const spotifyEmbed = new SpotifyEmbed({
-    parentEl: document.querySelector("#spotify-embed"),
+    parentEl: document.querySelector("#spotify-embed")
   });
   const songSearch = searchParams.get("song");
-  console.log(window.location.search)
+  console.log(window.location.search);
   let item;
   if (songSearch) {
     fetchSongSearch();
   }
-  searchResultEl.addEventListener("click", (e) => {
+  searchResultEl.addEventListener("click", e => {
     if (e.target.matches(".btn-listen")) {
-      let data = e.target.dataset;
-      let artist = data.artist;
-      let title = data.title;
-      getlyrics(artist, title)
+      const data = e.target.dataset;
+      const artist = data.artist;
+      const title = data.title;
+      getlyrics(artist, title);
       return spotifyEmbed.src(spotifyEmbedUrl(item.uri));
     }
   });
-  searchResultEl.addEventListener("click", (e) => {
+  searchResultEl.addEventListener("click", e => {
     if (e.target.matches(".save-btn")) {
-      let data = e.target.dataset;
-      let artist = data.artist;
-      let title = data.title;
-    };
+      const data = e.target.dataset;
+      const artist = data.artist;
+      const title = data.title;
+    }
   });
 
-  function getlyrics(artist, title){
-    let lyricq=`/api/lyrics?title=${title}&artist=${artist}`;
+  function getlyrics(artist, title) {
+    const lyricq = `/api/lyrics?title=${title}&artist=${artist}`;
     console.log(lyricq);
     fetch(lyricq)
       .then(response => response.json())
@@ -74,9 +74,9 @@ window.onload = () => {
     function songDetails({ artistText, spotifyUrl }) {
       return [
         ["artist", artistText],
-        ["url", `<a href="${spotifyUrl}">${spotifyUrl}</a>`],
+        ["url", `<a href="${spotifyUrl}">${spotifyUrl}</a>`]
       ]
-        .map((row) => row.join(": "))
+        .map(row => row.join(": "))
         .join("<br>");
     }
   }
