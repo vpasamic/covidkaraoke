@@ -41,19 +41,26 @@
       <div class="col-md-6 col-md-offset-3">
         <h2>Welcome <span class="member-name"></span></h2>
       </div>
-      
     </div>
 </div>
+
+<form class="search-form">
+  <label for="songTitle">Song Title</label>
+  <input type="title" class="form-control" id="title-input" placeholder="Song Title">
+  <label for="songArtist">Artist</label>
+  <input type="artist" class="form-control" id="artist-input" placeholder="Artist">
+</form>
+
 <div class="card" style="width: 18rem;">
   <div class="card-body"></div>
   <div id="spotify-embed"></div>
 </div>
 <h2>Saved Songs</h2>
-
 <ul>
   {{#each Search}}
   
   {{/each}}
 </ul>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/members.js"></script>
