@@ -5,7 +5,6 @@ window.onload = () => {
     parentEl: document.querySelector("#spotify-embed")
   });
   const songSearch = searchParams.get("song");
-  console.log(window.location.search);
   let item;
   if (songSearch) {
     fetchSongSearch();
@@ -25,7 +24,7 @@ window.onload = () => {
 
       const saveSong = {
         artist: song.artist,
-        songTitle: song.title        
+        songTitle: song.title
       };
       $.ajax("/api/history", {
         type: "POST",
