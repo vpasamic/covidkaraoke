@@ -1,3 +1,5 @@
+
+
 window.onload = () => {
   const searchResultEl = document.querySelector("#search-results");
   const searchParams = new URLSearchParams(window.location.search);
@@ -5,23 +7,42 @@ window.onload = () => {
     parentEl: document.querySelector("#spotify-embed"),
   });
   const songSearch = searchParams.get("song");
+  let item;
   if (songSearch) {
     fetchSongSearch();
   }
-
   searchResultEl.addEventListener("click", (e) => {
     if (e.target.matches(".btn-listen")) {
-
-      return spotifyEmbed.src(e.target.value);
+      let data = e.target.dataset;
+      let artist = data.artist;
+      let title = data.title;
+      console.log(find)
+      getlyrics(artist, title)
+      return spotifyEmbed.src(spotifyEmbedUrl(item.uri));
     }
   });
 
+  function getlyrics(artist, title){
+    let lyricq=`/api/lyrics?title=${title}&artist=${artist}`;
+    console.log(lyricq);
+    fetch(lyricq)
+      .then(response => response.json())
+      .then(data => {
+        const lyrics = data;
+        $("#lyrics").text(lyrics);
+      });
+  }
+  function spotifyEmbedUrl(songUri) {
+    const [type, id] = songUri.split(":").slice(1);
+    return `https://open.spotify.com/embed/${type}/${id}`;
+  }
   async function fetchSongSearch() {
     try {
       const response = await fetch(`/api/search/songs?song=${songSearch}`);
       if (response.ok) {
-        const { items } = await response.json();
-        renderSongs(items);
+        item = await response.json();
+        item = item.items[0];
+        renderSongs(item);
       } else {
         console.log("http error:", response.status, response.statusText);
       }
@@ -30,24 +51,19 @@ window.onload = () => {
     }
   }
 
-  function renderSongs(songs) {
-    songs.forEach((song) => {
-      const { name, uri, artists, external_urls } = song;
-      const artistText = artists[0].name;
-      const spotifyUrl = external_urls.spotify;
+  function renderSongs(song) {
+    const { name, uri, artists, external_urls } = song;
+    const artistText = artists[0].name;
+    const spotifyUrl = external_urls.spotify;
 
-      const el = document.createElement("div");
-      el.classList.add("mb-3");
-      el.innerHTML = `
+    const el = document.createElement("div");
+    el.classList.add("mb-3");
+    el.innerHTML = `
         <h3>${name}</h3>
         <p>${songDetails({ artistText, spotifyUrl })}</p>
-        <button class="btn btn-secondary btn-listen get-lyrics"value=>GET LYRICS </button>
-        <button class="btn btn-secondary btn-listen" artist="${artistText}" song="${name}" value="${spotifyEmbedUrl(
-          uri
-        )}">Listen</button>
+        <button class="btn btn-secondary btn-listen" data-artist="${artistText}"data-title="${name}">Listen</button>
       `;
-      searchResultEl.appendChild(el);
-    });
+    searchResultEl.appendChild(el);
 
     function songDetails({ artistText, spotifyUrl }) {
       return [
@@ -56,11 +72,6 @@ window.onload = () => {
       ]
         .map((row) => row.join(": "))
         .join("<br>");
-    }
-
-    function spotifyEmbedUrl(songUri) {
-      const [type, id] = songUri.split(":").slice(1);
-      return `https://open.spotify.com/embed/${type}/${id}`;
     }
   }
 };

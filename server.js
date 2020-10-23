@@ -8,7 +8,7 @@ const passport = require("./config/passport");
 
 //Require APIS
 const spotifyApiController = require("./controllers/spotify-api");
-const soleno = require("solenolyrics")
+const soleno = require("./controllers/lyrics")
 
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 8080;
@@ -42,6 +42,7 @@ require("./routes/html-routes.js")(app);
 require("./routes/search-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 app.get("/api/search/songs", spotifyApiController.searchTracks);
+app.get("/api/lyrics", soleno.getlyrics)
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {
