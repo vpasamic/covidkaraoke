@@ -5,7 +5,6 @@ window.onload = () => {
     parentEl: document.querySelector("#spotify-embed")
   });
   const songSearch = searchParams.get("song");
-  console.log(window.location.search);
   let item;
   if (songSearch) {
     fetchSongSearch();
