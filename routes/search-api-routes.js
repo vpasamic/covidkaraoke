@@ -24,7 +24,7 @@ module.exports = app => {
   });
   // POST route for saving a new post
   app.post("/api/history", (req, res) => {
-    db.Search.create(req.body).then(dbSearch => {
+    db.Search.create({artist: req.body.artist, songTitle: req.body.songTitle, UserId: req.user.id}).then(dbSearch => {
       res.json(dbSearch);
     });
   });
