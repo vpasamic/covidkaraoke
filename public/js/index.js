@@ -26,9 +26,9 @@ window.onload = () => {
       const title = data.title;
     }
   });
-  function savesong(artist, title){
-    const savesongquery = `/api/history?title=${title}&artist=${artist}`
-    post(savesongquery)
+  function savesong(artist, title) {
+    const savesongquery = `/api/history?title=${title}&artist=${artist}`;
+    post(savesongquery);
   }
 
   function getlyrics(artist, title) {
