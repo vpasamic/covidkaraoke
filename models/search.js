@@ -14,8 +14,6 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
   Search.associate = function(models) {
-    // We're saying that a Post should belong to an Author
-    // A Post can't be created without an Author due to the foreign key constraint
     models.Search.belongsTo(models.User, {
       onDelete: "CASCADE",
       foreignKey: {
