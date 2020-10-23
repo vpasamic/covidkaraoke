@@ -15,7 +15,6 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "2.4.3",
-    "css-doodle": "^0.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.0",
     "express-handlebars": "^5.1.0",
