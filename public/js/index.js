@@ -21,16 +21,29 @@ window.onload = () => {
   });
   searchResultEl.addEventListener("click", e => {
     if (e.target.matches(".save-btn")) {
-      const data = e.target.dataset;
-      const artist = data.artist;
-      const title = data.title;
+      const song = e.target.dataset;
+
+      const saveSong = {
+        artist: song.artist,
+        songTitle: song.title        
+      };
+      $.ajax("/api/history", {
+        type: "POST",
+        data: saveSong
+      }).then(() => {
+        // Reload the page to get the updated list
+        location.reload();
+      });
     }
   });
+<<<<<<< HEAD
   function savesong(artist, title) {
     const savesongquery = `/api/history?title=${title}&artist=${artist}`;
     post(savesongquery);
   }
 
+=======
+>>>>>>> 2fe35238dc5402d123dd0109118f5d240dca2bd8
   function getlyrics(artist, title) {
     const lyricq = `/api/lyrics?title=${title}&artist=${artist}`;
     console.log(lyricq);
