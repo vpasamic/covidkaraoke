@@ -15,10 +15,16 @@ window.onload = () => {
       let data = e.target.dataset;
       let artist = data.artist;
       let title = data.title;
-      console.log(find)
       getlyrics(artist, title)
       return spotifyEmbed.src(spotifyEmbedUrl(item.uri));
     }
+  });
+  searchResultEl.addEventListener("click", (e) => {
+    if (e.target.matches(".save-btn")) {
+      let data = e.target.dataset;
+      let artist = data.artist;
+      let title = data.title;
+    };
   });
 
   function getlyrics(artist, title){
