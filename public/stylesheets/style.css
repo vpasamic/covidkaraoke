@@ -42,11 +42,21 @@ body{
   position: relative;
 }
 
+.lights-bg h3 {
+  color: rgb(119, 112, 184);
+}
+
+.lights-bg a {
+  color: rgb(119, 112, 184);
+  text-align: center;
+}
+
 .record-bg {
   background-image: url('../images/band.jpg');
   min-height: 100vh;
   height: 100%;
   width: 100%;
+  padding-top: 100px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
