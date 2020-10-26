@@ -18,6 +18,21 @@ window.onload = () => {
       return spotifyEmbed.src(spotifyEmbedUrl(item.uri));
     }
   });
+  $(".delete-btn").click(function(event){
+    event.preventDefault(); 
+    const data = event.target.dataset;
+    let id = data.id;
+    id = parseInt(id);
+    console.log(id);
+    const apiquery = `/api/history?id=${id}`;
+    $.ajax(apiquery, {
+      type: "delete",
+      data: id
+    }).then(() => {
+      // Reload the page to get the updated list
+      location.reload();
+    });
+  })
   searchResultEl.addEventListener("click", e => {
     if (e.target.matches(".save-btn")) {
       const song = e.target.dataset;

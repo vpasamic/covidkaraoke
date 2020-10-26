@@ -33,14 +33,15 @@ module.exports = app => {
     });
   });
 
-  // DELETE route for deleting posts
-  // app.delete("/api/history", (req, res) => {
-  //   db.Post.destroy({
-  //     where: {
-  //       id: req.params.id
-  //     },
-  //   }).then((dbSearch) => {
-  //     res.json(dbSearch);
-  //   });
-  // });
+  //DELETE route for deleting posts
+  app.delete("/api/history", (req, res) => {
+    console.log(req.body.id)
+    db.Search.destroy({
+      where: {
+        id: req.query.id
+      }
+    }).then(dbSearch => {
+      res.json(dbSearch);
+    });
+  });
 };
