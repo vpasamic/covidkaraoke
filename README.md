@@ -8,20 +8,13 @@
 
 >  In these unprecedented times people feel at a loss without the simple pleasures they once enjoyed outside of the home. Our application offers users the opportunity to gain back a sense of normalcy while maintaining their health and safety in the comfort of their own home. The New England Journal of Medicine has reported that symptoms of anxiety and depression are on the rise due to feelings of isolation. Covid Karaoke brings our users a personalized, high-energy musical environment where they can unwind with friends and family. Music has long been used as an uplifting, creative outlet and though we may not be able to listen to it live we can still experience the magic with a live show of our own.
 
-> As an avid karaoke fan in the era of COVD-19
+> As an avid karaoke fan in the era of COVID-19
 
 > I want to sing my favorite songs with music and lyrics
 
 > so that I can fill the void of not being able to go to karaoke bars.d
 
-
-
-
-
-
 ## Screenshots
-
-<!-- <img src= "public\assets\images\screenshot.jpg" alt = "Screenshot of Burger App"> -->
 
 ## Table of contents
 
@@ -61,8 +54,8 @@
 - Express API
 - Express-Handlebars
 - Passport API
-- Sequelize API,
-- DOTENV API,
+- Sequelize API
+- DOTENV API
 - Spotify API
 
 ## EnvVars
