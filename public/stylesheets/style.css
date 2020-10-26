@@ -10,10 +10,34 @@ body{
   margin: 0;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
 .background {
   background-image: url('../images/concert.jpeg');
   background-color: #cccccc;
   height: 800px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  min-height: 100vh;
+}
+
+.member {
+  background-image: url('../images/spinners.jpg');
+  background-color: #cccccc;
+  height: 100%;
+  background-position: center;
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+  min-height: 100vh;
+}
+
+#login-page {
+  background-image: url('../images/music.jpg');
+  height: 800px;
+  width: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -44,11 +68,41 @@ body{
   font-size: 1.3rem;
   line-height: 1.5;
 }
-#intro-button:hover {
-  border:1px solid #151d12;
-  background:#151d12;
-  border-radius: 0;
-  color:#fff;
+
+#signup h2 {
+  color:white;
+}
+
+#signup {
+  color:white;
+}
+#signup h2 {
+  color:white;
+}
+
+#login h2 {
+  color:white;
+}
+
+#login {
+  color:white;
+}
+
+#member h2 {
+  color: white;
+  text-shadow: 3px 3px 3px rgb(7, 20, 26);
+}
+
+#member {
+  color: white;
+}
+
+#saved-songs h1 {
+  color:white
+}
+
+#saved-songs h3 {
+  color:black;
 }
 
 .background-top {

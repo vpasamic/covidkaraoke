@@ -1,65 +1,65 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/logout">
-        Logout
-      </a>
-    </div>
-  </div>
-</nav>
- <div class="container">
-      <div class="row">
-        <div class="col-md-4">
+<div class="member">
+  <div class="overlay">
+    <div id="member" class="container">
+      <nav class="navbar">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <h1 style="color: white;">Welcome <span class="member-name"></span></h1>
+          </div>
+           <a class="navbar-brand" style="float: right" href="/logout">
+            Logout
+          </a>
+        </div>
+      </nav>
+      <div class="row align-items-start">
+        <div class="col-sm-4">
+          <div class="card bg-dark text-white">
+          
+          <label for="song-search-input" class="card-text">Enter song title</label>
           <form action="/members" id="search-form">
-            <div class="form-group">
-              <label for="song-search-input">Enter track title</label>
-              <input
-                id="song-search-input"
-                class="form-control"
-                name="song"
-                type="text"
-              />
-            </div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-block">
-                Search
-              </button>
-            </div>
+                <div class="form-group">
+                  <input
+                    id="song-search-input"
+                    class="form-control"
+                    name="song"
+                    type="text"/>
+                </div>
+            <button type="submit" class="btn btn-dark btn-block" style="background-color:rgb(63, 52, 126)">Search</button>
           </form>
+        </div>
+        </div>
+        <div class="col-sm-3 col-md-offset-2">
           <div id="search-results"></div>
-        </div>
-        <div class="col-md-8">
           <div id="spotify-embed"></div>
-		  <div>
-			  <p id="lyrics"></p>
-		  </div>
         </div>
       </div>
-    </div>
-<div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Welcome <span class="member-name"></span></h2>
+<br>
+<div class="card">
+	<div><p id="lyrics" style="font-size: 24px"></p></div>
+</div>
+
+<div id="saved-songs" class="card">
+  <h1>Saved Songs</h1>
+    <div>
+      {{#each songs}}
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3>{{songTitle}}</h3>
+          <small>Date Saved: {{createdAt}}</small>
+  </h2>
+  <h4 style="float: right; color: black; margin-top: -10px;">Artist: {{artist}} </h4>
       </div>
-    </div>
+  </div>
+{{/each}}
+</div>
+</div>
+</div>
+</div>
 </div>
 
 <div class="card" style="width: 18rem;">
   <div class="card-body"></div>
   <div id="spotify-embed"></div>
-</div>
-<h2>Saved Songs</h2>
-<div>
-{{#each songs}}
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h2>{{songTitle}}</h2>
-        <small>{{createdAt}}</small>
-      </h2>
-      <h5 style="float: right; color: blue; margin-top: -10px;">Written by: {{artist}} </h5>
-    </div>
-  </div>
-{{/each}}
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -72,10 +72,10 @@ window.onload = () => {
     const el = document.createElement("div");
     el.classList.add("mb-3");
     el.innerHTML = `
-        <h3>${name}</h3>
+        <h3 style="color: white">${name}</h3>
         <p>${songDetails({ artistText, spotifyUrl })}</p>
-        <button class="btn btn-secondary btn-listen" data-artist="${artistText}"data-title="${name}">Listen</button>
-        <button class="btn btn-secondary save-btn" data-artist="${artistText}"data-title="${name}">Save Song</button>
+        <button class="btn btn-secondary btn-listen" style="color: black" data-artist="${artistText}"data-title="${name}">Listen</button>
+        <button class="btn btn-secondary save-btn" style="color: black" data-artist="${artistText}"data-title="${name}">Save Song</button>
       `;
     searchResultEl.appendChild(el);
 
