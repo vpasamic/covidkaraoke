@@ -35,7 +35,7 @@ module.exports = app => {
 
   //DELETE route for deleting posts
   app.delete("/api/history", (req, res) => {
-    console.log(req.body.id)
+    console.log(req.body.id);
     db.Search.destroy({
       where: {
         id: req.query.id

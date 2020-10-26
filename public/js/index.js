@@ -18,8 +18,8 @@ window.onload = () => {
       return spotifyEmbed.src(spotifyEmbedUrl(item.uri));
     }
   });
-  $(".delete-btn").click(function(event){
-    event.preventDefault(); 
+  $(".delete-btn").click(function(event) {
+    event.preventDefault();
     const data = event.target.dataset;
     let id = data.id;
     id = parseInt(id);
@@ -32,7 +32,7 @@ window.onload = () => {
       // Reload the page to get the updated list
       location.reload();
     });
-  })
+  });
   searchResultEl.addEventListener("click", e => {
     if (e.target.matches(".save-btn")) {
       const song = e.target.dataset;
