@@ -51,7 +51,7 @@
 > Click on the app link to view the homepage. User can search for song by track title. User can click the "listen" button to hear the song and see the lyrics. User can click the "save" button to save song to history.
 
 ## Link
-> https://dashboard.heroku.com/apps/whispering-taiga-23587/deploy/github
+> https://covidkaraoke.herokuapp.com/ 
 
 ## Contributors
 
