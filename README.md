@@ -9,7 +9,9 @@
 >  In these unprecedented times people feel at a loss without the simple pleasures they once enjoyed outside of the home. Our application offers users the opportunity to gain back a sense of normalcy while maintaining their health and safety in the comfort of their own home. The New England Journal of Medicine has reported that symptoms of anxiety and depression are on the rise due to feelings of isolation. Covid Karaoke brings our users a personalized, high-energy musical environment where they can unwind with friends and family. Music has long been used as an uplifting, creative outlet and though we may not be able to listen to it live we can still experience the magic with a live show of our own.
 
 > As an avid karaoke fan in the era of COVD-19
+
 > I want to sing my favorite songs with music and lyrics
+
 > so that I can fill the void of not being able to go to karaoke bars.d
 
 
@@ -38,20 +40,14 @@
 > In the command line, run:
 
     * require node.js
-    * npm init -y
-    * npm install sequelize
-    * npm install mysql2
-    * nmp install passport
-    * npm install express
-    * npm install express-handlebars
-    * npm install dotnev
+    * npm install 
 
 ## Usage
 
 > Click on the app link to view the homepage. User can search for song by track title. User can click the "listen" button to hear the song and see the lyrics. User can click the "save" button to save song to history.
 
 ## Link
-> https://dashboard.heroku.com/apps/whispering-taiga-23587/deploy/github
+>[Covid Karaoke](https://covidkaraoke.herokuapp.com/)
 
 ## Contributors
 
@@ -73,3 +69,7 @@
 This app uses dotenv. Requires a ".env" file like the following:
 
 SERVER_SECRET = your_server_secret
+
+SPOTIFY_ID = your_Spotify_client_id
+
+SPOTIFY_SECRET =Your_Spotify_secret
