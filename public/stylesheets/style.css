@@ -5,33 +5,63 @@ form.login {
   margin-top: 50px;
 }
 
+#section1 {
+  height: 400px;
+}
+
+#section2 {
+  height: 200px;
+  padding-top: 150px;
+  padding-bottom: 500px;
+  text-align: center;
+  line-height: 10rem;
+}
+
 body{
   background-color: rgb(31, 30, 37);
   margin: 0;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
 .background {
   background-image: url('../images/concert.jpeg');
-  background-color: #cccccc;
-  height: 800px;
+  min-height: 100vh;
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+}
+
+.lights-bg {
+  background-image: url('../images/lights.jpg');
   min-height: 100vh;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.record-bg {
+  background-image: url('../images/band.jpg');
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 .member {
   background-image: url('../images/spinners.jpg');
-  background-color: #cccccc;
+  min-height: 100vh;
   height: 100%;
   background-position: center;
   background-repeat: repeat-y;
   background-attachment: fixed;
   background-size: cover;
   position: relative;
-  min-height: 100vh;
 }
 
 #login-page {
@@ -67,6 +97,11 @@ body{
   color: white;
   font-size: 1.3rem;
   line-height: 1.5;
+}
+
+.intro-text a {
+  color: white;
+  font-size: 1.3rem;
 }
 
 #signup h2 {
