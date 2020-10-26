@@ -144,6 +144,7 @@ body{
 #delete-button {
   background-color: rgb(63, 52, 126);
   color: white;
+  margin-right: -60px;
 }
 #saved-songs h1 {
   color:white;
